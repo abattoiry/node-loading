@@ -1,7 +1,6 @@
 
 const progress = new (require('./index').get());
 
-progress.setProgressMessage('娃哈哈');
 progress.start(run);
 
 function run(){

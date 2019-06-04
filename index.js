@@ -9,7 +9,7 @@ var Progress = function () {
 	this.line = readline;
 	this.loading;
 	this.index = 0;
-	this.progressMessage = 'Loading';
+	this.progressMessage = 'Processing';
 	this.pieces = [
 		'- ' + this.progressMessage + '.',
 		'\\ ' + this.progressMessage + '..',
