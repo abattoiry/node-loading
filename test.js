@@ -1,12 +1,13 @@
 
 const progress = new (require('./index').get());
 
+progress.setProgressMessage('娃哈哈');
 progress.start(run);
 
 function run(){
   let timer = 0;
   const interval = setInterval(() => {
-    if (timer > 10) {
+    if (timer >= 2) {
       clearInterval(interval);
       progress.finish();
     }
@@ -14,5 +15,3 @@ function run(){
     timer ++;
   }, 500);
 }
-
-
