@@ -41,11 +41,15 @@ function loading(self) {
 
 Progress.prototype = {
 	start: function (main) {
+		loading(this);
+	},
+
+	startWithCluster: function(main) {
 		const self = this;
 		if (!main) {
 			loading(self);
 		} else {
-			if (cluster.isMaster) { // 主线程
+			if (cluster.isMaster) { // 主进程
 				const workings = Object.keys(cluster.workers);
 				if (workings.length < numCPUs) {
 					worker = cluster.fork();
@@ -53,7 +57,7 @@ Progress.prototype = {
 				if (main) {
 					main();
 				}
-			} else { // 子线程
+			} else { // 子进程
 				process.on('message', (msg) => {
 					if (msg === 'shutdown') {
 						clearInterval(self.loading);
