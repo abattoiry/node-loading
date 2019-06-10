@@ -1,7 +1,7 @@
 
-const progress = new (require('./index').get());
+const progress = new (require('./index'));
 
-progress.start(run);
+progress.startWithCluster(run);
 
 function run(){
   let timer = 0;
