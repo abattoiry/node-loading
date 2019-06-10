@@ -92,6 +92,4 @@ Progress.prototype = {
 	}
 }
 
-module.exports.get = function () {
-	return Progress;
-}
+module.exports = Progress;
